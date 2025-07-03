@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vince Project</title>
   <style>
     html, body {
@@ -14,6 +15,7 @@
       overflow: hidden;
       font-size: 62.5%;
     }
+
     .floating-words {
       position: fixed;
       width: 100%;
@@ -22,38 +24,52 @@
       z-index: 0;
       pointer-events: none;
     }
+
     .intro-screen .floating-words {
       opacity: 0.2;
     }
+
     .floating-words span {
       position: absolute;
       color: #333;
       font-size: 2rem;
       animation: float linear infinite;
     }
+
     @keyframes float {
       from { transform: translateY(100vh) rotate(0deg); }
-      to { transform: translateY(-100vh) rotate(360deg); }
+      to   { transform: translateY(-100vh) rotate(360deg); }
     }
+
     .intro-screen {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(18,18,18,0.95);
+      background-color: rgba(18, 18, 18, 0.95);
       z-index: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 2rem;
+      transition: all 1.5s ease;
     }
+
+    .intro-screen.fade-out {
+      opacity: 0;
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
     .intro-content {
       z-index: 3;
       text-align: center;
     }
+
     .intro-content h1 {
       font-size: 3.6rem;
       margin-bottom: 2rem;
     }
+
     .intro-content button {
       padding: 1rem 2rem;
       font-size: 1.6rem;
@@ -63,24 +79,36 @@
       border-radius: 2rem;
       cursor: pointer;
     }
+
     .intro-content button:hover {
       background-color: #555;
     }
+
     .main-content {
       display: none;
+      opacity: 0;
+      transition: opacity 2s ease;
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
+
+    .main-content.visible {
+      display: block;
+      opacity: 1;
+    }
+
     .header {
       text-align: left;
       margin-bottom: 3rem;
     }
+
     .header h2 {
       font-size: 2.4rem;
     }
+
     .item {
       display: flex;
       align-items: center;
@@ -91,6 +119,7 @@
       flex-wrap: wrap;
       box-shadow: 0 0 10px rgba(255,255,255,0.05);
     }
+
     .item img {
       width: clamp(13rem, 40vw, 20rem);
       height: clamp(13rem, 40vw, 20rem);
@@ -101,17 +130,20 @@
       margin-right: 2rem;
       flex-shrink: 0;
     }
+
     .text-box {
       display: flex;
       flex-direction: column;
       flex: 1;
       min-width: 200px;
     }
+
     .text-box strong {
       margin-bottom: 0.5rem;
       color: #fff;
       font-size: 1.6rem;
     }
+
     .text-box a {
       background-color: #333;
       padding: 0.6rem 1.2rem;
@@ -123,15 +155,18 @@
       text-decoration: none;
       width: fit-content;
     }
+
     .text-box a:hover {
       background-color: #555;
       color: #fff;
     }
+
     @media (max-width: 600px) {
       .item {
         flex-direction: column;
         align-items: flex-start;
       }
+
       .item img {
         margin-right: 0;
         margin-bottom: 1rem;
@@ -141,6 +176,7 @@
 </head>
 <body>
   <div class="floating-words" id="floatingWords"></div>
+
   <div class="intro-screen" id="intro">
     <div class="floating-words"></div>
     <div class="intro-content">
@@ -148,68 +184,82 @@
       <button onclick="enterSite()">Enter</button>
     </div>
   </div>
+
   <div class="main-content" id="main">
     <div class="header">
       <h2>Name: Vin Cedric V. Osorio<br>Grade & Section: Gr 11 Solaris<br>Title: ICT PROJECT</h2>
-    </div><!-- INJECTED NEW CONTENT -->
-<div class="item">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tiger_shark_drawing.svg/2000px-Tiger_shark_drawing.svg.png" alt="Shark Drawing">
-  <div class="text-box">
-    <strong>Wikimedia Commons – Shark Drawing</strong>
-    <a href="https://commons.m.wikimedia.org/w/index.php?title=Special%3AMediaSearch&search=shark+drawing&type=image" target="_blank">Wikimedia Commons</a>
-  </div>
-</div>
-<div class="item">
-  <img src="https://i.ibb.co/rDVR4fk/3657978493-464f52bbb2-q.jpg" alt="Flickr Shark">
-  <div class="text-box">
-    <strong>Flickr Commons – Shark Illustration</strong>
-    <a href="https://www.flickr.com/photos/gabod/3657978493/" target="_blank">Flickr Commons</a>
-  </div>
-</div>
-<div class="item">
-  <img src="https://i.ibb.co/2183L2Ly/51656887110-5de592ae83-q.jpg" alt="Creative Fox">
-  <div class="text-box">
-    <strong>Flickr Creative Commons – Fox Illustration</strong>
-    <a href="https://www.flickr.com/photos/chrisinplymouth/51656887110/" target="_blank">Flickr Creative Commons</a>
-  </div>
-</div>
-<div class="item">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Bananas_on_black_background_02.jpg/2000px-Bananas_on_black_background_02.jpg" alt="Banana Image">
-  <div class="text-box">
-    <strong>Collage.com – Banana Clipart</strong>
-    <a href="https://commons.m.wikimedia.org/w/index.php?title=Special%3AMediaSearch&search=banana&type=image" target="_blank">Collage.com</a>
-  </div>
-</div>
-<div class="item">
-  <img src="https://creativecommons.org/wp-content/uploads/2024/07/image-from-rawpixel-id-13956715-original-scaled.jpg" alt="Creative Image">
-  <div class="text-box">
-    <strong>Creative Commons – Rawpixel Art</strong>
-    <a href="https://creativecommons.org/2024/07/24/preferencesignals/?utm_source=chatgpt.com" target="_blank">Creative Commons</a>
-  </div>
-</div>
-<div class="item">
-  <img src="https://www.savetz.com/fifi/cover.png" alt="Savetz Cover">
-  <div class="text-box">
-    <strong>Savetz.com – Fifi Cover Art</strong>
-    <a href="https://www.savetz.com/fifi/?utm_source=chatgpt.com" target="_blank">Savetz.com</a>
-  </div>
-</div>
-<div class="item">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/960px-Image_created_with_a_mobile_phone.png" alt="Mobile Phone Image">
-  <div class="text-box">
-    <strong>Wikipedia Public Domain – Mobile Phone Art</strong>
-    <a href="https://en.m.wikipedia.org/wiki/Image#/media/File%3AImage_created_with_a_mobile_phone.png" target="_blank">Wikipedia Commons</a>
-  </div>
-</div>
-<!-- END INJECTED -->
+    </div>
 
+    <!-- Items List -->
+    <div class="item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tiger_shark_drawing.svg/2000px-Tiger_shark_drawing.svg.png">
+      <div class="text-box">
+        <strong>Wikimedia Commons – Shark Drawing</strong>
+        <a href="https://commons.m.wikimedia.org/w/index.php?title=Special%3AMediaSearch&search=shark+drawing&type=image" target="_blank">Wikimedia Commons</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://i.ibb.co/rDVR4fk/3657978493-464f52bbb2-q.jpg">
+      <div class="text-box">
+        <strong>Flickr Commons – Shark Illustration</strong>
+        <a href="https://www.flickr.com/photos/gabod/3657978493/" target="_blank">Flickr Commons</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://i.ibb.co/2183L2Ly/51656887110-5de592ae83-q.jpg">
+      <div class="text-box">
+        <strong>Flickr Creative Commons – Fox Illustration</strong>
+        <a href="https://www.flickr.com/photos/chrisinplymouth/51656887110/" target="_blank">Flickr Creative Commons</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Bananas_on_black_background_02.jpg/2000px-Bananas_on_black_background_02.jpg">
+      <div class="text-box">
+        <strong>Collage.com – Banana Clipart</strong>
+        <a href="https://commons.m.wikimedia.org/w/index.php?title=Special%3AMediaSearch&search=banana&type=image" target="_blank">Collage.com</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://creativecommons.org/wp-content/uploads/2024/07/image-from-rawpixel-id-13956715-original-scaled.jpg">
+      <div class="text-box">
+        <strong>Creative Commons – Rawpixel Art</strong>
+        <a href="https://creativecommons.org/2024/07/24/preferencesignals/?utm_source=chatgpt.com" target="_blank">Creative Commons</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://www.savetz.com/fifi/cover.png">
+      <div class="text-box">
+        <strong>Savetz.com – Fifi Cover Art</strong>
+        <a href="https://www.savetz.com/fifi/?utm_source=chatgpt.com" target="_blank">Savetz.com</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/960px-Image_created_with_a_mobile_phone.png">
+      <div class="text-box">
+        <strong>Wikipedia Public Domain – Mobile Phone Art</strong>
+        <a href="https://en.m.wikipedia.org/wiki/Image#/media/File%3AImage_created_with_a_mobile_phone.png" target="_blank">Wikipedia Commons</a>
+      </div>
+    </div>
   </div>
+
   <script>
     function enterSite() {
-      document.getElementById('intro').style.display = 'none';
-      document.getElementById('main').style.display = 'block';
-      document.body.style.overflow = 'auto';
+      const intro = document.getElementById('intro');
+      const main = document.getElementById('main');
+      intro.classList.add('fade-out');
+      setTimeout(() => {
+        intro.style.display = 'none';
+        main.classList.add('visible');
+        document.body.style.overflow = 'auto';
+      }, 1500);
     }
+
     const numbers = Array.from({ length: 100 }, () => Math.floor(Math.random() * 9999));
     for (let i = 0; i < 50; i++) {
       const span = document.createElement('span');
