@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vince Project</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      overflow: hidden;
+      font-size: 50%;
+    }.floating-words {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.intro-screen .floating-words {
+  opacity: 0.2;
+}
+
+.floating-words span {
+  position: absolute;
+  color: #444;
+  font-size: 2rem;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  to {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+.intro-screen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(18,18,18,0.9);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-content {
+  z-index: 3;
+  text-align: center;
+}
+
+.intro-content h1 {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+}
+
+.intro-content button {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border: none;
+  background-color: #444;
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.intro-content button:hover {
+  background-color: #666;
+}
+
+.main-content {
+  display: none;
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h2 {
+  font-size: 2.4rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.item img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 1.2rem;
+  background-color: #2a2a2a;
+  padding: 0.5rem;
+  margin-right: 2rem;
+  filter: grayscale(100%) brightness(90%);
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-box strong {
+  margin-bottom: 0.5rem;
+  color: white;
+  font-size: 1.6rem;
+}
+
+.text-box a {
+  color: #bbbbbb;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.text-box a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <div class="floating-words" id="floatingWords"></div>  <div class="intro-screen" id="intro">
+    <div class="floating-words"></div>
+    <div class="intro-content">
+      <h1>Vince Project</h1>
+      <button onclick="enterSite()">Enter</button>
+    </div>
+  </div>  <div class="main-content" id="main">
+    <div class="header">
+      <h2>Name: Vin Cedric V. Osorio | Grade & Section: Gr 11 Solaris | Title: ICT PROJECT</h2>
+    </div><div class="item">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/World_map_clip_art.svg/1600px-World_map_clip_art.svg.png?20070414192142" alt="World map">
+  <div class="text-box">
+    <strong>Wikimedia Commons – World map clip art</strong>
+    <a href="https://commons.wikimedia.org/wiki/File:World_map_clip_art.svg" target="_blank">Wikimedia Commons</a>
+  </div>
+</div>
+
+<div class="item">
+  <img src="https://i.ibb.co/rK44fB8j/8022123240-160d46fc7f-q.jpg" alt="Stick figure sketch">
+  <div class="text-box">
+    <strong>Flickr Commons – Stick-figure sketch</strong>
+    <a href="https://www.flickr.com/photos/85250697@N08/8022123240" target="_blank">Flickr Commons</a>
+  </div>
+</div>
+
+<div class="item">
+  <img src="https://i.ibb.co/Fk2HZTGj/2343215300-decd2babb2-q.jpg" alt="Marigold flower">
+  <div class="text-box">
+    <strong>Flickr Creative Commons – Marigold flower line drawing</strong>
+    <a href="https://www.flickr.com/photos/jaymackinnon/2343215300" target="_blank">Flickr Creative Commons</a>
+  </div>
+</div>
+
+<div class="item">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Mandala_arrow_drawing.svg/1200px-Mandala_arrow_drawing.svg.png?20071220093847" alt="Mandala arrow">
+  <div class="text-box">
+    <strong>Collage.com – Mandala arrow drawing</strong>
+    <a href="https://commons.wikimedia.org/wiki/File:Mandala_arrow_drawing.svg" target="_blank">Collage.com</a>
+  </div>
+</div>
+
+<div class="item">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Three_Lines_Ornament_Black_Up_Right.svg/1452px-Three_Lines_Ornament_Black_Up_Right.svg.png?20111025103535" alt="Three lines ornament">
+  <div class="text-box">
+    <strong>Creative Commons (Openverse) – Three lines ornament</strong>
+    <a href="https://commons.wikimedia.org/wiki/File:Three_Lines_Ornament_Black_Up_Right.svg" target="_blank">Creative Commons (Openverse)</a>
+  </div>
+</div>
+
+<div class="item">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Shih-Tzu-Dog-Line-Art.svg/1024px-Shih-Tzu-Dog-Line-Art.svg.png?20220917135649" alt="Shih-Tzu dog">
+  <div class="text-box">
+    <strong>Savetz.com – Shih-Tzu dog line art</strong>
+    <a href="https://commons.wikimedia.org/wiki/File:Shih-Tzu-Dog-Line-Art.svg" target="_blank">Savetz.com</a>
+  </div>
+</div>
+
+<div class="item">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Draw-1-black-line.svg/848px-Draw-1-black-line.svg.png?20070720192612" alt="Single black line">
+  <div class="text-box">
+    <strong>Wikipedia Public Domain Resource – Single black line drawing</strong>
+    <a href="https://commons.wikimedia.org/wiki/File:Draw-1-black-line.svg" target="_blank">Wikipedia Public Domain</a>
+  </div>
+</div>
+
+  </div>  <script>
+    function enterSite() {
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      document.body.style.overflow = 'auto';
+    }
+
+    const words = ['project', 'code', 'ICT', 'solar', 'graphic', 'web', 'data', 'info', 'school', 'vincedric'];
+    for (let i = 0; i < 50; i++) {
+      const span = document.createElement('span');
+      span.textContent = words[Math.floor(Math.random() * words.length)];
+      span.style.left = Math.random() * 100 + '%';
+      span.style.top = Math.random() * 90 + 5 + '%';
+      span.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+      span.style.animationDuration = (Math.random() * 20 + 10) + 's';
+      span.style.animationDelay = (Math.random() * 10) + 's';
+      document.querySelectorAll('.floating-words').forEach(container => container.appendChild(span.cloneNode(true)));
+    }
+  </script></body>
+    </html>
